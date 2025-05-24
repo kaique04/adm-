@@ -1,0 +1,48 @@
+.carrinho {
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.carrinho h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.item-carrinho {
+  display: flex;
+  gap: 20px;
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.item-carrinho img {
+  width: 100px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.item-carrinho .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.total {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.total button {
+  margin-top: 10px;
+  padding: 12px 24px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}

@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+header {
+  background-color: #444;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 24px;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  margin-left: 25px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+nav a.cart {
+  position: relative;
+}
+
+nav a.cart span {
+  background: pink;
+  color: black;
+  border-radius: 50%;
+  padding: 2px 6px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 12px;
+}
+
+.hero {
+  background-image: url('roupasnovaral.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 40px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 12px 30px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.btn-comprar {
+  color: #fff;
+  padding: 8px;
+  border-radius: 3px;
+  background-color: #333;
+  border: solid black 1px;
+  transition: 0.8s;
+  width: 80%;
+  margin: 0 auto 15px auto;
+  display: block;
+}
+
+.btn-comprar:hover {
+  transform: scale(1.05);
+}
+
+.produtos {
+  padding: 60px 40px 100px 40px;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.produtos h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.grid-produtos {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.liquidacao h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.produtos {
+  padding: 60px 40px 100px 40px;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.liquidacao {
+  padding: 0px 40px 100px 40px;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.grid-liquidacao {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  height: 320px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 280px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin: 15px 0 5px;
+}
+
+.card p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .grid-produtos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .grid-liquidacao {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* HEADER */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+    gap: 10px;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  nav a {
+    margin-left: 0;
+    font-size: 18px;
+  }
+
+  /* HERO */
+  .hero {
+    height: auto;
+    padding: 30px 10px;
+  }
+
+  .hero-content {
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .btn {
+    font-size: 16px;
+    padding: 10px 25px;
+  }
+
+  /* SEÇÕES */
+  .produtos,
+  .liquidacao {
+    padding: 40px 20px 80px 20px;
+  }
+
+  .produtos h2,
+  .liquidacao h2 {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  /* GRIDS */
+  .grid-produtos,
+  .grid-liquidacao {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  /* CARDS */
+  .card {
+    width: 95%;
+    height: auto;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+  }
+
+  .card p {
+    font-size: 18px;
+  }
+
+  .btn-comprar {
+    width: 100%;
+    font-size: 18px;
+    padding: 14px 0;
+  }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrinho de Compras</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .cart {
+      font-size: 24px;
+      cursor: pointer;
+      text-decoration: none;
+      color: black;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    button.remover {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .total {
+      font-weight: bold;
+      font-size: 18px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Seu Carrinho</h1>
+  <a href="index.html" class="cart">🏠 Voltar</a>
+</header>
+
+<table id="tabela-carrinho">
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Preço (R$)</th>
+      <th>Remover</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Itens serão inseridos aqui via JS -->
+  </tbody>
+</table>
+
+<div class="total" id="total">Total: R$ 0,00</div>
+
+<script>
+  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+  const tbody = document.querySelector('#tabela-carrinho tbody');
+  const totalEl = document.getElementById('total');
+
+  function atualizarTabela() {
+    tbody.innerHTML = ''; // limpa tabela
+    let total = 0;
+
+    if(carrinho.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="3">Seu carrinho está vazio.</td></tr>';
+      totalEl.textContent = 'Total: R$ 0,00';
+      return;
+    }
+
+    carrinho.forEach((item, index) => {
+      total += item.preco;
+
+      const tr = document.createElement('tr');
+
+      const tdNome = document.createElement('td');
+      tdNome.textContent = item.nome;
+
+      const tdPreco = document.createElement('td');
+      tdPreco.textContent = item.preco.toFixed(2).replace('.', ',');
+
+      const tdRemover = document.createElement('td');
+      const btnRemover = document.createElement('button');
+      btnRemover.textContent = 'Remover';
+      btnRemover.classList.add('remover');
+      btnRemover.addEventListener('click', () => {
+        carrinho.splice(index, 1);
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        atualizarTabela();
+      });
+
+      tdRemover.appendChild(btnRemover);
+
+      tr.appendChild(tdNome);
+      tr.appendChild(tdPreco);
+      tr.appendChild(tdRemover);
+
+      tbody.appendChild(tr);
+    });
+
+    totalEl.textContent = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+  }
+
+  atualizarTabela();
+</script>
+
+</body>
+</html>
