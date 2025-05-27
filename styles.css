@@ -15,7 +15,7 @@ body {
 }
 
 header {
-  background-color: #444;
+  background-color: #B19CD9;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -91,9 +91,9 @@ nav a.cart span {
 .btn-comprar {
   color: #fff;
   padding: 8px;
-  border-radius: 3px;
-  background-color: #333;
-  border: solid black 1px;
+  border-radius: 5px;
+  background-color: #AB6A9E;
+  border: solid  1px;
   transition: 0.8s;
   width: 80%;
   margin: 0 auto 15px auto;
@@ -175,6 +175,19 @@ nav a.cart span {
   font-size: 16px;
   color: #555;
   margin-bottom: 15px;
+}
+
+.preco-antigo {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.preco-promocao {
+  color: #AB6A9E;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 @media (max-width: 768px) {
