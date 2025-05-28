@@ -135,14 +135,14 @@ main {
 .modal-conteudo input {
   width: 90%;
   padding: 8px;
-  margin: 10px 0;
+  margin: 5px 0;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
 .modal-conteudo button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #AB6A9E;
   border: none;
   color: white;
   border-radius: 5px;
@@ -150,7 +150,7 @@ main {
 }
 
 .modal-conteudo button:hover {
-  background-color: #0056b3;
+  background-color: #914e84;
 }
 
 

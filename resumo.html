@@ -8,11 +8,16 @@
     .resumo { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
     .produto { display: flex; align-items: center; margin-bottom: 10px; }
     .produto img { width: 80px; height: 80px; margin-right: 10px; }
+
+    .voltar{
+      text-decoration: none;
+      color: #914e84;
+    }
   </style>
 </head>
 <body>
 
-
+<a class="voltar" href="index.html">VOLTAR</a>
 <div class="resumo">
   <h1>Obrigado pela sua compra!</h1>
   <p>Seu pedido foi realizado com sucesso. Um e-mail de confirmação foi enviado para você.</p>
@@ -64,7 +69,6 @@
     clienteDiv.textContent = 'Dados do cliente não encontrados.';
   }
 
-  // Limpar carrinho após mostrar resumo
   localStorage.removeItem('carrinho');
 </script>
 
