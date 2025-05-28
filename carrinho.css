@@ -101,6 +101,57 @@ main {
 }
 
 
+/* Modal (fundo escuro) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+/* Conteúdo do Modal */
+.modal-conteudo {
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Botão Fechar */
+.fechar {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Inputs */
+.modal-conteudo input {
+  width: 90%;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.modal-conteudo button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-conteudo button:hover {
+  background-color: #0056b3;
+}
 
 
 

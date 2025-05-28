@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumo do Pedido</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+    .resumo { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+    .produto { display: flex; align-items: center; margin-bottom: 10px; }
+    .produto img { width: 80px; height: 80px; margin-right: 10px; }
+  </style>
+</head>
+<body>
+
+
+<div class="resumo">
+  <h1>Obrigado pela sua compra!</h1>
+  <p>Seu pedido foi realizado com sucesso. Um e-mail de confirmação foi enviado para você.</p>
+
+  <h2>Resumo do Pedido</h2>
+  <div id="resumo-produtos"></div>
+
+  <h3>Endereço de Entrega</h3>
+  <p id="dados-cliente"></p>
+</div>
+
+<script>
+  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  const dadosCliente = JSON.parse(localStorage.getItem('dadosCliente')) || {};
+
+  const resumoDiv = document.getElementById('resumo-produtos');
+  let total = 0;
+
+  if (carrinho.length === 0) {
+    resumoDiv.innerHTML = '<p>Nenhum produto encontrado.</p>';
+  } else {
+    carrinho.forEach(item => {
+      const itemDiv = document.createElement('div');
+      itemDiv.classList.add('produto');
+      itemDiv.innerHTML = `
+        <img src="${item.imagem}" alt="${item.nome}">
+        <div>
+          <p><strong>${item.nome}</strong></p>
+          <p>R$ ${item.preco.toFixed(2)} x ${item.quantidade}</p>
+        </div>
+      `;
+      resumoDiv.appendChild(itemDiv);
+      total += item.preco * item.quantidade;
+    });
+
+    resumoDiv.innerHTML += `<p><strong>Total: R$ ${total.toFixed(2)}</strong></p>`;
+  }
+
+  const clienteDiv = document.getElementById('dados-cliente');
+  if (dadosCliente.nome) {
+    clienteDiv.innerHTML = `
+      ${dadosCliente.nome}<br>
+      ${dadosCliente.endereco}, ${dadosCliente.cidade}<br>
+      CEP: ${dadosCliente.cep}<br>
+      Telefone: ${dadosCliente.telefone}<br>
+      Email: ${dadosCliente.email}
+    `;
+  } else {
+    clienteDiv.textContent = 'Dados do cliente não encontrados.';
+  }
+
+  // Limpar carrinho após mostrar resumo
+  localStorage.removeItem('carrinho');
+</script>
+
+</body>
+</html>

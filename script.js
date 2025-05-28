@@ -37,7 +37,6 @@ botoesComprar.forEach(botao => {
     // Atualiza o contador
     atualizarContadorCarrinho();
 
-    alert(`${nome} adicionado ao carrinho!`);
   });
 });
 

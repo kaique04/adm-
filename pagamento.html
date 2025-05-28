@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pagamento - Rommanel</title>
+  <link rel="stylesheet" href="carrinho.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">Rommanel</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#produtos">Alianças</a>
+      <a href="index.html#liquidacao">Promoções</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="pagamento-container">
+    <h2>Escolha o Método de Pagamento</h2>
+
+    <div class="opcoes-pagamento">
+      <div class="opcao">
+        <h3>Cartão de Crédito</h3>
+        <input type="text" id="numero-cartao" placeholder="Número do Cartão">
+        <input type="text" id="nome-cartao" placeholder="Nome no Cartão">
+        <input type="text" id="validade-cartao" placeholder="Validade (MM/AA)">
+        <input type="text" id="cvv-cartao" placeholder="CVV">
+        <button onclick="processarPagamento('Cartão de Crédito')">Pagar com Cartão</button>
+      </div>
+      <div class="opcao">
+        <h3>Boleto Bancário</h3>
+        <p>Gere um boleto e pague em qualquer banco ou lotérica.</p>
+        <button onclick="processarPagamento('Boleto Bancário')">Gerar Boleto</button>
+      </div>
+      <div class="opcao">
+        <h3>PIX</h3>
+        <p>Use o QR Code ou copie e cole o código PIX para pagar.</p>
+        <img src="pix-qr-code-exemplo.png" alt="QR Code PIX" style="width:150px;">
+        <p><strong>Chave PIX:</strong> pagamento@rommanel.com</p>
+        <button onclick="processarPagamento('PIX')">Confirmar Pagamento PIX</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Modal Carregando -->
+<div id="modal-carregando" class="modal">
+  <div class="modal-conteudo">
+    <p>Processando pagamento, aguarde...</p>
+    <div class="loader"></div>
+  </div>
+</div>
+
+<script>
+// Função para simular o processamento do pagamento e redirecionar para a página de resumo
+function processarPagamento(metodo) {
+  // Validação básica se o método for cartão (você pode expandir essa parte)
+  if (metodo === 'Cartão de Crédito') {
+    const numero = document.getElementById('numero-cartao').value.trim();
+    const nome = document.getElementById('nome-cartao').value.trim();
+    const validade = document.getElementById('validade-cartao').value.trim();
+    const cvv = document.getElementById('cvv-cartao').value.trim();
+
+    if (!numero || !nome || !validade || !cvv) {
+      alert('Por favor, preencha todos os campos do cartão.');
+      return;
+    }
+  }
+
+  // Exibir o modal de carregamento
+  const modal = document.getElementById('modal-carregando');
+  modal.style.display = 'block';
+
+  // Simular tempo de processamento e redirecionar para resumo.html
+  setTimeout(() => {
+    modal.style.display = 'none';
+    window.location.href = 'resumo.html'; // Página de resumo após o pagamento
+  }, 3000); // Simula 3 segundos de "carregamento"
+}
+</script>
+
+<style>
+.pagamento-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.opcoes-pagamento {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.opcao {
+  flex: 1 1 250px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.opcao input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.opcao button {
+  padding: 10px 15px;
+  background-color: #AB6A9E;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.opcao button:hover {
+  background-color: #914e84;
+}
+
+/* Modal Carregando */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 200px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-conteudo {
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Loader animado */
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #AB6A9E;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+</body>
+</html>
