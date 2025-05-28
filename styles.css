@@ -290,3 +290,26 @@ nav a.cart span {
     padding: 14px 0;
   }
 }
+
+footer {
+  background-color: #AB6A9E;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.redes-sociais a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.redes-sociais a:hover {
+  color: #f0c4e3;
+}
